@@ -1,8 +1,8 @@
 # Rock, Paper, Scissors game
 
 <p align="center">
-<img src="./public/assets/images/laptop.png" alt="Laptop design" width="350" />
-<img src="./public/assets/images/iphone.png" alt="Mobile design" width="350" />
+<img src="./assets/images/laptop.png" alt="Laptop design" width="350" />
+<img src="./assets/images/iphone.png" alt="Mobile design" width="350" />
 </p>
 
 
