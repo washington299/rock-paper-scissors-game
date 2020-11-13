@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+	<meta name="author" content="Washington Campos" />
+	<meta name="description" content="Rock Paper Scissors Game with HTML5, CSS3 and Javascript" />
+
+	<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+</head>
+<body>
+	<header class="header">
+		<img src="./assets/images/logo.svg" alt="Rock Paper Scissors Logo" class="header__logo" />
+		<div class="header__score">
+			<span class="header__text">Score</span>
+			<div class="header__value"></div>
+		</div>
+	</header>
+	<main>
+		<section class="game">
+			<img src="./assets/images/bg-triangle.svg" alt="Triangle background" class="game__triangle" />
+			<div class="game__circle game__circle--blue" onclick="getUserSymbol('paper')">
+				<div class="game__symbol-area">
+					<img src="./assets/images/icon-paper.svg" alt="Paper symbol" />
+				</div>
+			</div>
+
+			<div class="game__circle game__circle--yellow" onclick="getUserSymbol('scissors')">
+				<div class="game__symbol-area">
+					<img src="./assets/images/icon-scissors.svg" alt="Scissors symbol" />
+				</div>
+			</div>
+
+			<div class="game__circle game__circle--red" onclick="getUserSymbol('rock')">
+				<div class="game__symbol-area">
+					<img src="./assets/images/icon-rock.svg" alt="Rock symbol" />
+				</div>
+			</div>
+		</section>
+
+		<section class="symbols-picked">
+			<div class="symbols-picked__area">
+				<div class="symbols-picked--user">
+					<div class="symbols-picked__circle"></div>
+				</div>
+				<span class="symbols-picked__text">You picked</span>
+			</div>
+
+			<div class="symbols-picked__result">
+				<span class="symbols-picked__message"></span>
+				<button class="symbols-picked__button">Play again</button>
+			</div>
+
+			<div class="symbols-picked__area">
+				<div class="symbols-picked--computer">
+					<div class="symbols-picked__circle"></div>
+				</div>
+				<span class="symbols-picked__text">The house picked</span>
+			</div>
+		</section>
+
+		<span class="load hidden" style="text-align: center;">Loading...</span>
+
+		<div class="modal">
+			<div class="modal__box">
+				<h2 class="modal__title">Rules</h2>
+				<img src="./assets/images/image-rules.svg" alt="Game Rules" class="modal__img">
+				<img src="./assets/images/icon-close.svg" alt="Close button" class="modal__close" />
+			</div>
+		</div>
+		<button class="rules">Rules</button>
+	</main>
+
+	<script src="./javascript/index.js"></script>
+</body>
+</html>

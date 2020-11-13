@@ -1,0 +1,291 @@
+@use './variables';
+@use './functions';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 100vh;
+	padding-top: 30px;
+	background: linear-gradient(variables.$radial-gradient1, variables.$radial-gradient2);
+	color: variables.$white;
+	font-family: variables.$font-family;
+}
+
+.header {
+	width: 85%;
+	max-width: 600px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto 60px auto;
+	padding: 15px;
+	border: 2px solid variables.$header-outline;
+	border-radius: 10px;
+}
+.header__logo {
+	width: 100px;
+}
+.header__score {
+	width: 100px;
+	background-color: variables.$white;
+	text-align: center;
+	border-radius: 5px;
+}
+.header__text {
+	color: variables.$score-text;
+	font-weight: variables.$semi-bold;
+}
+.header__value {
+	color: variables.$dark-text;
+	font-size: 34px;
+}
+
+.game {
+	max-width: 450px;
+	display: flex;
+	justify-content: center;
+	margin: 130px auto 0 auto;
+	position: relative;
+}
+.game__triangle {
+	width: 80%;
+	height: 200px;
+}
+.game__circle {
+	position: absolute;
+	cursor: pointer;
+}
+.game__circle--blue {
+	@include functions.game-circle-color(variables.$paper-gradient1, variables.$paper-gradient2);
+	top: 20px;
+	left: 30px;
+	transform: translateY(-50%);
+}
+.game__circle--yellow {
+	@include functions.game-circle-color(variables.$scissors-gradient1, variables.$scissors-gradient2);
+	top: 20px;
+	right: 30px;
+	transform: translateY(-50%);
+}
+.game__circle--red {
+	@include functions.game-circle-color(variables.$rock-gradient1, variables.$rock-gradient2);
+	bottom: 0;
+}
+.game__symbol-area {
+	@include functions.game-circle-size(90px, 90px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: variables.$white;
+	border-radius: 50%;
+}
+
+.rules {
+	color: variables.$white;
+	font-weight: variables.$semi-bold;
+	border: 2px solid variables.$header-outline;
+	border-radius: 5px;
+	padding: 10px 30px;
+	background-color: transparent;
+	text-transform: uppercase;
+	outline: none;
+	position: absolute;
+	right: 50%;
+	bottom: 50px;
+	transform: translateX(50%);
+	cursor: pointer;
+
+	&:hover {
+		transition: all ease 0.6s;
+		background-color: variables.$white;
+		color: variables.$dark-text;
+		border-color: variables.$dark-text;
+	}
+}
+.modal {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+}
+.modal__box {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	background-color: variables.$white;
+}
+.modal__title {
+	color: variables.$dark-text;
+	margin: 80px 0;
+	font-size: xx-large;
+	text-transform: uppercase;
+}
+.modal__img {
+	width: 300px;
+}
+.modal__close {
+	position: absolute;
+	bottom: 50px;
+	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+.symbols-picked {
+	display: none;
+	justify-content: space-between;
+	margin: 30px;
+}
+.symbols-picked--user,
+.symbols-picked--computer {
+	@include functions.game-circle-size(120px, 120px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+.symbols-picked__circle {
+	@include functions.game-circle-size(90px, 90px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	background-color: variables.$white;
+}
+.symbols-picked__text {
+	display: block;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: variables.$semi-bold;
+	margin-top: 10px;
+}
+.symbols-picked__result {
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	bottom: 25%;
+	transform: translateX(-50%);
+}
+.symbols-picked__message {
+	text-align: center;
+	font-size: 45px;
+}
+.symbols-picked__button {
+	width: 220px;
+	height: 45px;
+	margin-top: 20px;
+	background-color: variables.$white;
+	color: variables.$dark-text;
+	font-weight: variables.$semi-bold;
+	font-size: 14px;
+	border-radius: 10px;
+	border-color: transparent;
+	text-transform: uppercase;
+	outline: none;
+	cursor: pointer;
+}
+
+@media screen and (min-width: variables.$sm) {
+	.header__logo {
+		width: auto;
+	}
+	.header__score {
+		width: 130px;
+	}
+	.header__text {
+		display: inline-block;
+		margin-top: 5px;
+		font-size: 18px;
+	}
+	.header__value {
+		font-size: 60px;
+	}
+
+	.game__triangle {
+		height: 250px;
+	}
+	.game__symbol-area {
+		@include functions.game-circle-size(105px, 105px);
+	}
+
+	.rules {
+		right: 20px;
+		bottom: 20px;
+		transform: translateX(0);
+	}
+	.modal {
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	.modal__box {
+		width: 400px;
+		height: 400px;
+		align-items: flex-start;
+		border-radius: 10px;
+		z-index: 2;
+	}
+	.modal__title {
+		margin: 20px 0 30px 30px;
+	}
+	.modal__img {
+		margin: 0 auto;
+	}
+	.modal__close {
+		top: 30px;
+		right: 40px;
+	}
+
+	.symbols-picked {
+		max-width: 600px;
+		margin: auto;
+	}
+	.symbols-picked__area {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.symbols-picked--user,
+	.symbols-picked--computer {
+		width: 200px;
+		height: 200px;
+	}
+	.symbols-picked__circle {
+		width: 155px;
+		height: 155px;
+
+		img {
+			width: 70px;
+		}
+	}
+	.symbols-picked__text {
+		font-size: 20px;
+		margin-top: 0;
+		margin-bottom: 60px;
+	}
+	.symbols-picked__result {
+		bottom: 30%;
+	}
+}
+
+@media screen and (min-width: variables.$md) {
+	.symbols-picked--user,
+	.symbols-picked--computer {
+		@include functions.game-circle-size(215px, 215px);
+	}
+	.symbols-picked__circle {
+		@include functions.game-circle-size(165px, 165px);
+	}
+}

@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  padding-top: 30px;
+  background: linear-gradient(#1f3756, #141539);
+  color: white;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.header {
+  width: 85%;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 60px auto;
+  padding: 15px;
+  border: 2px solid #606e85;
+  border-radius: 10px;
+}
+
+.header__logo {
+  width: 100px;
+}
+
+.header__score {
+  width: 100px;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.header__text {
+  color: #2a46c0;
+  font-weight: 600;
+}
+
+.header__value {
+  color: #3b4363;
+  font-size: 34px;
+}
+
+.game {
+  max-width: 450px;
+  display: flex;
+  justify-content: center;
+  margin: 130px auto 0 auto;
+  position: relative;
+}
+
+.game__triangle {
+  width: 80%;
+  height: 200px;
+}
+
+.game__circle {
+  position: absolute;
+  cursor: pointer;
+}
+
+.game__circle--blue {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  background: linear-gradient(#4865f4, #5671f5);
+  top: 20px;
+  left: 30px;
+  transform: translateY(-50%);
+}
+@media screen and (min-width: 640px) {
+  .game__circle--blue {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.game__circle--yellow {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  background: linear-gradient(#ec9e0e, #eca922);
+  top: 20px;
+  right: 30px;
+  transform: translateY(-50%);
+}
+@media screen and (min-width: 640px) {
+  .game__circle--yellow {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.game__circle--red {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  background: linear-gradient(#dc2e4e, #dd405d);
+  bottom: 0;
+}
+@media screen and (min-width: 640px) {
+  .game__circle--red {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.game__symbol-area {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.rules {
+  color: white;
+  font-weight: 600;
+  border: 2px solid #606e85;
+  border-radius: 5px;
+  padding: 10px 30px;
+  background-color: transparent;
+  text-transform: uppercase;
+  outline: none;
+  position: absolute;
+  right: 50%;
+  bottom: 50px;
+  transform: translateX(50%);
+  cursor: pointer;
+}
+.rules:hover {
+  transition: all ease 0.6s;
+  background-color: white;
+  color: #3b4363;
+  border-color: #3b4363;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.modal__box {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: white;
+}
+
+.modal__title {
+  color: #3b4363;
+  margin: 80px 0;
+  font-size: xx-large;
+  text-transform: uppercase;
+}
+
+.modal__img {
+  width: 300px;
+}
+
+.modal__close {
+  position: absolute;
+  bottom: 50px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.symbols-picked {
+  display: none;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.symbols-picked--user,
+.symbols-picked--computer {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.symbols-picked__circle {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.symbols-picked__text {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.symbols-picked__result {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  bottom: 25%;
+  transform: translateX(-50%);
+}
+
+.symbols-picked__message {
+  text-align: center;
+  font-size: 45px;
+}
+
+.symbols-picked__button {
+  width: 220px;
+  height: 45px;
+  margin-top: 20px;
+  background-color: white;
+  color: #3b4363;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 10px;
+  border-color: transparent;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 640px) {
+  .header__logo {
+    width: auto;
+  }
+
+  .header__score {
+    width: 130px;
+  }
+
+  .header__text {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 18px;
+  }
+
+  .header__value {
+    font-size: 60px;
+  }
+
+  .game__triangle {
+    height: 250px;
+  }
+
+  .game__symbol-area {
+    width: 105px;
+    height: 105px;
+  }
+
+  .rules {
+    right: 20px;
+    bottom: 20px;
+    transform: translateX(0);
+  }
+
+  .modal {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal__box {
+    width: 400px;
+    height: 400px;
+    align-items: flex-start;
+    border-radius: 10px;
+    z-index: 2;
+  }
+
+  .modal__title {
+    margin: 20px 0 30px 30px;
+  }
+
+  .modal__img {
+    margin: 0 auto;
+  }
+
+  .modal__close {
+    top: 30px;
+    right: 40px;
+  }
+
+  .symbols-picked {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .symbols-picked__area {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .symbols-picked--user,
+.symbols-picked--computer {
+    width: 200px;
+    height: 200px;
+  }
+
+  .symbols-picked__circle {
+    width: 155px;
+    height: 155px;
+  }
+  .symbols-picked__circle img {
+    width: 70px;
+  }
+
+  .symbols-picked__text {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 60px;
+  }
+
+  .symbols-picked__result {
+    bottom: 30%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .symbols-picked--user,
+.symbols-picked--computer {
+    width: 215px;
+    height: 215px;
+  }
+
+  .symbols-picked__circle {
+    width: 165px;
+    height: 165px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

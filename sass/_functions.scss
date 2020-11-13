@@ -1,0 +1,20 @@
+@use './variables';
+
+@mixin game-circle-size($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin game-circle-color($gradient1, $gradient2) {
+	@include game-circle-size(120px, 120px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	position: absolute;
+	background: linear-gradient($gradient1, $gradient2);
+
+	@media screen and (min-width: variables.$sm) {
+		@include game-circle-size(140px, 140px);
+	}
+}
